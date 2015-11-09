@@ -7,8 +7,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <body>
       <h1>Books</h1>
-    	<xsl:for-each select="books/book">
      	<ul>
+    	<xsl:for-each select="books/book">
      		<li>
      			<xsl:element name="strong">
      				<xsl:element name="a">
@@ -20,12 +20,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      			</xsl:element> 
      			<xsl:value-of select="description"/>
      		</li>
-     	</ul>
      	</xsl:for-each>
+     	</ul>
 
      	<h1>Articles</h1>
-    	<xsl:for-each select="articles/article">
      	<ul>
+    	<xsl:for-each select="articles/article">
      		<li>
      			<xsl:element name="strong">
      				<xsl:element name="a">
@@ -40,8 +40,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      			</xsl:element>
      			<xsl:value-of select="year"/>
      		</li>
-     	</ul>
      	</xsl:for-each>
+     	</ul>
   </body>
   
   </html>
