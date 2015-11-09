@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE catalog SYSTEM "catalog.dtd">
+<!DOCTYPE catalog SYSTEM "http://emmaedv.github.io/TNM065/lab-dtd/catalog.dtd">
 
 
 <catalog title="My catalog">
