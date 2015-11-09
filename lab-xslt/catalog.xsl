@@ -10,8 +10,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     	<xsl:for-each select="books/book">
      	<ul>
      		<li>
-     			<a href=""> <xsl:value-of select="title"/> </a>
-     			<strong><xsl:value-of select="year"/>, </strong>
+     			<strong>
+     				<xsl:element name="a">
+     					<xsl:attribute name="href">
+     						<xsl:value-of select="title"/>
+     					</xsl:attribute>
+     				</xsl:element>
+
+	     			<xsl:value-of select="publish_date/year"/>, 
+     			</strong>
      			<xsl:value-of select="description"/>
      		</li>
      	</ul>
