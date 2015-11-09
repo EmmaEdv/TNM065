@@ -6,8 +6,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <html>
   
   <body>
-  
-      Hej Hej Hej
+      XSLT-laboration
+      <h1>Books</h1>
+    	<xsl:for-each select="catalog/books/book">
+     	<ul>
+     		<li>
+     			<xsl:value-of select="author"/>
+     		</li>
+     	</ul>
+     	</xsl:for-each>
   </body>
   
   </html>
