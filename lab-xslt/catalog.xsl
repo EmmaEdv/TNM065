@@ -13,8 +13,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      			<strong>
      				<xsl:element name="a">
      					<xsl:attribute name="href">
-     						<xsl:value-of select="title"/>
+     						<xsl:value-of select="link"/>
      					</xsl:attribute>
+     					<xsl:value-of select="title"/>
      				</xsl:element>
 
 	     			<xsl:value-of select="publish_date/year"/>, 
