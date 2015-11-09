@@ -36,11 +36,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      					<xsl:value-of select="title"/>
      				</xsl:element>
 	     			: 
-	     			<xsl:for-each select="author">
-	     				<xsl:value-of select="author"/>, 
+	     			<xsl:for-each select="author">, 
      				</xsl:for-each>
      			</xsl:element> 
-     			<xsl:value-of select="publish_date/year"/>
+     			<xsl:value-of select="year"/>
      		</li>
      	</ul>
      	</xsl:for-each>
