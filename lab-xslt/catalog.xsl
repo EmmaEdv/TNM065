@@ -32,8 +32,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      					<xsl:attribute name="href">
      						<xsl:value-of select="link"/>
      					</xsl:attribute>
-     					<xsl:value-of select="title"/>
-     				</xsl:element>: 
+     					<xsl:value-of select="title"/>: 
 	     			<xsl:for-each select="author">
 	     				<xsl:value-of select="."/>, 
      				</xsl:for-each>
