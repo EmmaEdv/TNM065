@@ -33,12 +33,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      						<xsl:value-of select="link"/>
      					</xsl:attribute>
      					<xsl:value-of select="title"/>
-     				</xsl:element>: 
-	     			<xsl:for-each select="author">
+     				</xsl:element>
+	     			<xsl:template match="author">
 	     				<xsl:value-of select="."/>, 
      				</xsl:for-each>
-     			</xsl:element>
-     			<xsl:value-of select="year"/>
+     			</xsl:template>
+     			<xsl:value-of select="year"/>.
      		</li>
      	</xsl:for-each>
      	</ul>
