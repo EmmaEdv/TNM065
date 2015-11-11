@@ -38,7 +38,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	     				<xsl:value-of select="."/>, 
      				</xsl:for-each>
      			</xsl:element>
-     			<xsl:value-of select="year"/>
+     			<xsl:value-of select="year"/>.
      		</li>
      	</xsl:for-each>
      	</ul>
