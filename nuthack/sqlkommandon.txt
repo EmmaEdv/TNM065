@@ -1,0 +1,39 @@
+/*SKAPA TABELLER*/
+//Skapa Activity-tabell
+CREATE TABLE Activity (userId INT(6), date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, text TEXT(30), place VARCHAR(30), activityType VARCHAR(10), activityId INTEGER PRIMARY KEY AUTOINCREMENT);
+
+//Skapa Running-tabell (activityId ska ha relation till Activity.activityId, men får inte det att funka som jag tänkt mig.)
+CREATE TABLE Running (ActivityId int REFERENCES Activity(activityId), length VARCHAR(30), time TIME );
+
+//Skapa swimming-tabell
+CREATE TABLE Swimming (ActivityId int REFERENCES Activity(activityId), length INT(6), time TIME,  stroke VARCHAR(30));
+
+//Skapa gym-tabell
+CREATE TABLE Gym (ActivityId int REFERENCES Activity(activityId), exercise VARCHAR(60), weight INT(5),  reps INT(4));
+
+/*SÄTT IN DATA*/
+//Sätt in data i Activity
+INSERT INTO Activity (userId, date,text,place,activityType) VALUES (1, CURRENT_TIMESTAMP,'bra träning','vrinnevi','Running');
+
+//Hämta senaste activityId:
+SELECT activityId FROM Activity ORDER BY activityId DESC LIMIT 1
+
+INSERT INTO Running (activityId, length, time) VALUES (SÄTT IN VÄRDEN HÄR);
+
+
+/*HÄMTA DATA*/
+//Hämta all data från Activity och Running där activityId stämmer överens
+SELECT Activity.date, Activity.place, Activity.text, Activity.activityType, Running.time, Running.length FROM Activity INNER JOIN Running ON Activity.activityId = Running.activityId;
+
+//Hämta all data från Activity och Swimming där activityId stämmer överens
+SELECT Activity.date, Activity.place, Activity.text, Activity.activityType, Swimming.time, Swimming.length, Swimming.stroke FROM Activity INNER JOIN Swimming ON Activity.activityId = Swimming.activityId;
+
+//Hämta all data från Activity och Gym där activityId stämmer överens
+SELECT Activity.date, Activity.place, Activity.text, Activity.activityType, Gym.exercise, Gym.weight, Gym.reps FROM Activity INNER JOIN Gym ON Activity.activityId = Gym.activityId;
+
+
+//Uppdatera rad
+UPDATE Activity SET place='Medley' WHERE activityType = 'Swimming'
+
+//Ta bort tabell
+DROP TABLE Activity
