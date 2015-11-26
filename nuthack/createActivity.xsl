@@ -13,7 +13,7 @@
                 <h1>Skapa aktivitet</h1>
             </div>
             <div id="contents">
-                <form method="post" action="postToDb.php">
+                <form method="post" action="create.php">
                     Aktivitet:
                     <br/>
                     <select name="activityType">
