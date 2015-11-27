@@ -2,15 +2,20 @@
 <apa>
     <?php  
         // koppla upp mot databasen med med användarnamn "rsslab", utan lösenord
-        $servername = "localhost";
-        $username = "root";
-        $password = "root";
+        $servername = "188.226.180.103";
+        $port = "3306";
+        $username = "nuthack";
+        $password = "hejsanphylyp";
+        $mydb = "nuthack";
 
-        $link = mysql_connect($servername, $username, $password)
-            or die("Could not connect");
+        //$link = mysql_connect($servername, $username, $password)
+          //  or die("Could not connect");
+
+        $link = mysqli_connect($servername, $username, $password, $mydb, $port)
+           or die("Could not connect");
         // välj databasen rsslab
-        mysql_select_db("nuthack")
-            or die("Could not select database");
+        /*mysql_select_db("nuthack")
+            or die("Could not select database");*/
         $returnstring_about ="<wlog><name>WLOG</name>";
         $currentDate=date("c");
         // en sql-fråga som väljer ut alla rader sorterade fallande på år och vecka
@@ -19,11 +24,11 @@
                 ORDER BY userId DESC";
 
         // utför själva frågan. Om du har fel syntax får du felmeddelandet query failed
-        $result = mysql_query($query)
+        $result = mysqli_query($link, $query)
             or die("Query failed");
             
         // loopa över alla resultatrader och skriv ut en motsvarande tabellrad
-        while ($line = mysql_fetch_object($result)) {
+        while ($line = mysqli_fetch_object($result)) {
             // lagra innehållet i en tabellrad i variabler
             $userId = $line->userId; 
             $date = $line->date;
@@ -43,25 +48,24 @@
 
             // bygg upp en sträng innehållande det resultat vi vill ha
             // slå ihop två strängar med ".".   
-            $returnstring_about = $returnstring_about . "<wlogpost><userId>$userId</userId><date>$date</date><text>$text</text><place>$place</place><activityId>$activityId</activityId><activityType>$activityType</activityType>"; 
+            $returnstring_about = $returnstring_about . "<wlogpost><userId>$userId</userId><date>$date</date>
+                <text>$text</text><place>$place</place><activityId>$activityId</activityId>
+                <activityType>$activityType</activityType>"; 
             // query second db
             if($activityType == "Swimming") {
-                $query2 = "SELECT  *
-                        FROM Swimming
-                        WHERE activityId = $activityId";
-
-                // utför själva frågan. Om du har fel syntax får du felmeddelandet query failed
-                $result2 = mysql_query($query2)
-                    or die("Query failed");
-
-                while ($line2 = mysql_fetch_object($result2)) {
-                    // lagra innehållet i en tabellrad i variabler
-                    $stroke = $line2->stroke; 
-                    $length = $line2->length;
-                    // bygg upp en sträng innehållande det resultat vi vill ha
-                    // slå ihop två strängar med ".".   
-                    $returnstring_about = $returnstring_about . "<stroke>$stroke</stroke><length>$length</length>"; 
-                }
+                include 'dbquery/swimming.php';
+                // bygg upp en sträng innehållande det resultat vi vill ha
+                $returnstring_about = $returnstring_about . "<stroke>$stroke</stroke><length>$length</length>
+                    <time>$time</time>"; 
+            }else if($activityType == "Running") {
+                include 'dbquery/running.php';
+                // bygg upp en sträng innehållande det resultat vi vill ha
+                $returnstring_about = $returnstring_about . "<length>$length</length><time>$time</time>"; 
+            }else if($activityType == "Gym") {
+                include 'dbquery/gym.php';
+                // bygg upp en sträng innehållande det resultat vi vill ha
+                $returnstring_about = $returnstring_about . "<exercise>$exercise</exercise><weight>$weight</weight>
+                    <repetitions>$repetitions</repetitions>"; 
             } else {
                  $returnstring_about = $returnstring_about;
             }

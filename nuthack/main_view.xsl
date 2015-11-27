@@ -36,9 +36,23 @@
                         
                         <xsl:choose>
                             <xsl:when test="activityType = 'Swimming'">
-                                <h5>Laps:</h5>
+                                <h5>Race:</h5>
                                 <ul>
-                                    <li><xsl:value-of select="stroke"/>.<xsl:value-of select="length"/></li>
+                                    <li><xsl:value-of select="stroke"/>.<xsl:value-of select="length"/> 
+                                        in <xsl:value-of select="time"/></li>
+                                </ul>
+                            </xsl:when>
+                            <xsl:when test="activityType = 'Running'">
+                                <h5>Race:</h5>
+                                <ul>
+                                    <li><xsl:value-of select="length"/>m in <xsl:value-of select="time"/></li>
+                                </ul>
+                            </xsl:when>
+                            <xsl:when test="activityType = 'Gym'">
+                                <h5>Exercise:</h5>
+                                <ul>
+                                    <li><xsl:value-of select="repetitions"/> reps <xsl:value-of select="exercise"/> 
+                                        at <xsl:value-of select="weight"/>kg</li>
                                 </ul>
                             </xsl:when>
                             <xsl:otherwise>
