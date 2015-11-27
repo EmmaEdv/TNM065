@@ -1,5 +1,3 @@
-<?php include 'prefix.php';?>
-
  <?php  
     $servername = "188.226.180.103";
     $port = "3306";
