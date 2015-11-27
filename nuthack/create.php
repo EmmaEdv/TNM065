@@ -1,11 +1,14 @@
 <?php include 'prefix.php';?>
 
  <?php  
-    // koppla upp mot databasen med med användarnamn "rsslab", utan lösenord
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "nuthack";
+    $servername = "188.226.180.103";
+    $port = "3306";
+    $username = "nuthack";
+    $password = "hejsanphylyp";
+    $mydb = "nuthack";
+
+    $conn = mysqli_connect($servername, $username, $password, $mydb, $port)
+       or die("Could not connect");
 
     $userId = 1;  
     
@@ -13,57 +16,43 @@
     $place = $_POST["place"];
     $activityType = $_POST["activityType"];
     $date = $_POST["date"];
-
-    //Se till att det kodas som utf8 så vi inte får tokiga tecken.
-   /* $search = array('å', 'ä', 'ö', '&');
-    $replace = array('&aring;', '&auml;', '&ouml;', '&amp;');
-    $text = str_replace($search, $replace, $text);
-    $place = str_replace($search, $replace, $place);*/
-    //$activityType = $_POST["activityType"];
-    //$text = $_POST["text"];
-
     
-    $sql = "INSERT INTO Activity (userId, date, text, place, activityType) VALUES ($userId, '$date', '$text', '$place', '$activityType')";
+    $query = "INSERT INTO Activity (userId, date, text, place, activityType) VALUES ($userId, '$date', '$text', '$place', '$activityType')";
     
+    $result = mysqli_query($conn, $query)
+        or die("Query failed");
+    
+    $activityId = mysqli_insert_id($conn);
+    
+    if($activityType == "running") {
+        $length = $_POST["length"];
+        $time = $_POST["time"];
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        $query2 = "INSERT INTO Running (activityId, length, time) VALUES ($activityId, $length, '$time')";
+
+        $result = mysqli_query($conn, $query2)
+            or die("Query failed");
+    } 
+    else if($activityType == "gym") {
+        $exercise = $_POST["exercise"];
+        $weight = $_POST["weight"];
+        $reps = $_POST["reps"];
+
+        $query2 = "INSERT INTO Gym (activityId, exercise, weight, repetitions) VALUES ($activityId, '$exercise', $weight, $reps)";
+
+        $result = mysqli_query($conn, $query2)
+            or die("Query failed");
+    } 
+    else if($activityType == "swimming") {
+        $stroke = $_POST["stroke"];
+        $length = $_POST["length"];
+        $time = $_POST["time"];
+
+        $query2 = "INSERT INTO Swimming (activityId, stroke, length, time) VALUES ($activityId, '$stroke', $length, '$time')";
+
+        $result = mysqli_query($conn, $query2)
+            or die("Query failed");
     } 
 
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-
-    //If running:
-    
-
-
-    //If gym:
-
-
-    //If swimming: 
-
-
     $conn->close();
-/*
-    $link = mysql_connect($servername, $username, $password)
-        or die("Could not connect");
-    // välj databasen rsslab
-    mysql_select_db("nuthack")
-        or die("Could not select database");
-    
-
-    // Lägger in aktivitet med användarid, plats och aktivitetstyp
-    $query = "INSERT INTO Activity (userId, place, activityType) VALUES ($userId,  $place, $activityType)";
-
-    // utför själva frågan. Om du har fel syntax får du felmeddelandet query failed
-    $result = mysql_query($query)
-        or die("Query failed");
-<?php include 'postfix.php';?>        */
 ?>

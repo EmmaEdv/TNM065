@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style_main.css" />
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#activityType").change(function() {
+                    var val = $(this).val();
+                    if (val == "running") {
+                        $("#specificInput").html("Längd: <br/> <input type='text' name='length'/> km <br/> Tid: <br/> <input type='time' name='time' step='1'/> <br/>");
+                    } else if (val == "gym") {
+                        $("#specificInput").html("Övning: <br/> <input type='text' name='exercise'/> <br/> Vikt: <br/> <input type='text' name='weight'/> kg <br/> Reps: <br/> <input type='text' name='reps'/> <br/>");
+                    } else if (val == "swimming") {
+                        $("#specificInput").html("Simsätt: <br/> <input type='text' name='stroke'/> kg <br/> Längd: <br/> <input type='text' name='length'/> m <br/> Tid: <br/> <input type='time' name='time' step='1'/>  <br/>");
+                    }
+                });
+            });
+        </script>
+    </head>
+        
+    <body>
+        <div id="header">
+            <h1>Skapa aktivitet</h1>
+        </div>
+        <div id="contents">
+            <form method="post" action="create.php">
+                Aktivitet:
+                <br/>
+                <select id="activityType" name="activityType">
+                  <option value="running" selected="selected">Löpning</option>
+                  <option value="gym">Gym</option>
+                  <option value="swimming">Simning</option>-->
+                </select>
+                <br/>
+                Fritext:
+                <br/>
+                <input type="text" name="text"/>
+                <br/>
+                Plats:
+                <br/>
+                <input type="text" name="place"/>
+                <br/>
+                Date:
+                <br/>
+                
+                <!--TODO: HÄMTA DAGENS DATUM AUTOMAGISKT PLEASE-->
+
+                <input type="date" name="date" value="2015-11-26"/>
+                <br/>
+                <!--Löpning som default-->
+                <div id="specificInput">
+                    Längd: <br/> <input type='text' name='length'/> m <br/> Tid: <br/> <input type='time' name='time' step='1'/> <br/>
+                </div>
+                
+                <input type="submit" id="btn_sub" name="btn_sub" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>
