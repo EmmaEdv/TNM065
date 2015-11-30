@@ -13,8 +13,11 @@
        or die("Could not connect");
     // välj databasen rsslab
     /*mysql_select_db("nuthack")
-        or die("Could not select database");*/
-    $returnstring_about ="<wlog><name>WLOG</name>";
+        or die("Could not select database");
+        <!DOCTYPE person SYSTEM "http://emmaedv.github.io/TNM065/lab-dtd/start.dtd">*/
+    $returnstring_about = '<?xml version="1.0"?>';
+    $returnstring_about = $returnstring_about . '<!DOCTYPE wlog SYSTEM "http://emmaedv.github.io/TNM065/nuthack/wlog.dtd">';
+    $returnstring_about = $returnstring_about . "<wlog><name>WLOG</name>";
     $currentDate=date("c");
     // en sql-fråga som väljer ut alla rader sorterade fallande på år och vecka
     $query = "SELECT  *
@@ -69,8 +72,6 @@
         }
         $returnstring_about = $returnstring_about . "</wlogpost>";
     }
-    
-
 
     // koda för säkerhets skull om till utf-8 innan resultatet
     // skrivs ut.
