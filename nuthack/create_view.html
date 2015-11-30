@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <!--<link rel="stylesheet" type="text/css" href="style_main.css" />-->
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            // set style depending on UA
+            if(navigator.userAgent.match(/iPhone/i)){
+                var css = document.createElement('link');
+                css.type = "text/css";
+                css.rel = "stylesheet";
+                css.href = "style_mobile.css";
+
+                var metatag = document.createElement('meta');
+                metatag.name = "viewport";
+                metatag.content = "width=device-width, initial-scale=1";
+
+                var h = document.getElementsByTagName('head')[0];
+                h.appendChild(css);
+                h.appendChild(metatag);
+            }else {
+                var css = document.createElement('link');
+                css.type = "text/css";
+                css.rel = "stylesheet";
+                css.href = "style_main.css";
+
+                var h = document.getElementsByTagName('head')[0];
+                h.appendChild(css);
+            }
+
+            $(document).ready(function() {
+                $("#activityType").change(function() {
+                    var val = $(this).val();
+                    if (val == "Running") {
+                        $("#specificInput").html("Length: <br/> <input type='text' name='length'/> km <br/> Time: <br/> <input type='time' name='time' step='1'/> <br/>");
+                    } else if (val == "Gym") {
+                        $("#specificInput").html("Exercise: <br/> <input type='text' name='exercise'/> <br/> Weight: <br/> <input type='text' name='weight'/> kg <br/> Repetitions: <br/> <input type='text' name='reps'/> <br/>");
+                    } else if (val == "Swimming") {
+                        $("#specificInput").html("Stroke: <br/> <input type='text' name='stroke'/> kg <br/> Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1'/>  <br/>");
+                    }
+                });
+            });
+        </script>
+    </head>
+        
+    <body>
+        <div id="header">
+            <h1>Create Activity</h1>
+        </div>
+        <div id="contents">
+            <form method="post" action="create.php">
+                Activity:
+                <br/>
+                <select id="activityType" name="activityType">
+                  <option value="Running" selected="selected">Running</option>
+                  <option value="Gym">Gym</option>
+                  <option value="Swimming">Swimming</option>-->
+                </select>
+                <br/>
+                Text:
+                <br/>
+                <input type="text" name="text"/>
+                <br/>
+                Place:
+                <br/>
+                <input type="text" name="place"/>
+                <br/>
+                Date:
+                <br/>
+                
+                <!--TODO: HÄMTA DAGENS DATUM AUTOMAGISKT PLEASE-->
+
+                <input type="date" name="date" value="2015-11-26"/>
+                <br/>
+                <!--Löpning som default-->
+                <div id="specificInput">
+                    Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1'/> <br/>
+                </div>
+                
+                <input type="submit" id="btn_sub" name="btn_sub" value="Submit" />
+            </form>
+        </div>
+    </body>
+</html>
