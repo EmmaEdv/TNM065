@@ -1,10 +1,11 @@
-<!ELEMENT wlog (wlogpost)>
-<!ELEMENT wlogpost (userId, activity_date, text, place, activityType, activityId, length?, time?, exercise?, weight?, reps?, stroke?)>
+<!ELEMENT wlog (name, wlogpost*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT wlogpost (userId, date, text, place, activityType, activityId, length?, time?, exercise?, weight?, reps?, stroke?)>
 
 <!ELEMENT userId (#PCDATA)>
 
-<!ENTITY % date "year, month, day">
-<!ELEMENT activity_date (%date;)>
+<!ENTITY % dateformat "year, month, day">
+<!ELEMENT date (%dateformat;)>
 <!ELEMENT year (#PCDATA)>
 <!ELEMENT month (#PCDATA)>
 <!ELEMENT day (#PCDATA)>
