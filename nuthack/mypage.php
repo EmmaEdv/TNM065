@@ -1,4 +1,4 @@
-<?php include 'fix/prefix.php';?>
+<?php include 'fix/prefix_mypage.php';?>
 <apa>
     <?php  
         // koppla upp mot databasen med med användarnamn "rsslab", utan lösenord
@@ -80,4 +80,4 @@
         print utf8_encode($returnstring_about); 
     ?>
 </apa>
-<?php include 'fix/postfix.php';?>
+<?php include 'fix/postfix_mypage.php';?>
