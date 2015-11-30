@@ -1,6 +1,6 @@
 <!ELEMENT wlog (name, wlogpost*)>
 <!ELEMENT name (#PCDATA)>
-<!ELEMENT wlogpost (userId, date, text, place, activityType, activityId, length?, time?, exercise?, weight?, reps?, stroke?)>
+<!ELEMENT wlogpost (userId, date, text, place, activityId, activityType, stroke?, length?, time?, exercise?, weight?, repetitions?)>
 
 <!ELEMENT userId (#PCDATA)>
 
@@ -18,5 +18,5 @@
 <!ELEMENT time (#PCDATA)>
 <!ELEMENT exercise (#PCDATA)>
 <!ELEMENT weight (#PCDATA)>
-<!ELEMENT reps (#PCDATA)>
+<!ELEMENT repetitions (#PCDATA)>
 <!ELEMENT stroke (#PCDATA)>
