@@ -1,4 +1,5 @@
-<!ELEMENT wlogpost (userId, activity_date, text, place, activityType, activityId)>
+<!ELEMENT wlog (wlogpost)>
+<!ELEMENT wlogpost (userId, activity_date, text, place, activityType, activityId, length?, time?, exercise?, weight?, reps?, stroke?)>
 
 <!ELEMENT userId (#PCDATA)>
 
@@ -11,22 +12,14 @@
 <!ELEMENT text (#PCDATA)>
 <!ELEMENT place (#PCDATA)>
 
-<!ELEMENT activityType (running, gym, swimming)>
+<!ELEMENT activityType (#PCDATA)>
 
 <!ELEMENT activityId (#PCDATA)>
 
 <!-- ACTIVITY TYPES -->
-<!-- RUNNING -->
-<!ELEMENT running (activityId, length, time)>
 <!ELEMENT length (#PCDATA)>
 <!ELEMENT time (#PCDATA)>
-
-<!-- GYM -->
-<!ELEMENT gym (activityId, exercise, weight, reps)>
 <!ELEMENT exercise (#PCDATA)>
 <!ELEMENT weight (#PCDATA)>
 <!ELEMENT reps (#PCDATA)>
-
-<!-- SWIMMING -->
-<!ELEMENT swimming (activityId, length, time, stroke)>
 <!ELEMENT stroke (#PCDATA)>
