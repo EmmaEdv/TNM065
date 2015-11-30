@@ -12,6 +12,7 @@
             <div id="header">
                 <h1><xsl:value-of select="name"/> - my page</h1>
                 <button type="button"><a href="index_foo.php">log out</a></button>
+                <button type="button"><a href="createActivity.html">Create activity</a></button>
             </div>
             <div id="contents">
                 <xsl:for-each select="wlogpost">
