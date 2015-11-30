@@ -11,10 +11,20 @@
     $xsl = new DOMDocument;
 
     // TODO: kolla vilken user agent och sätt rätt styletsheet
+    // See which user agent is connecting
+    $UA = getenv('HTTP_USER_AGENT');
+    if (preg_match("/iPhone/i", $UA)) 
+    {
+        header("Content-type:text/html;charset=utf-8");
+        $xsl->load('main_view_mobile.xsl');
+    } else {
+        header("Content-type:text/html;charset=utf-8");
+        $xsl->load('main_view.xsl');
+    }
 
     // skall bytas ut när ovan är löst
-    header("Content-type:text/html;charset=utf-8");
-    $xsl->load('main_view.xsl');
+    //header("Content-type:text/html;charset=utf-8");
+    //$xsl->load('main_view.xsl');
 
     // Make the transformation and print the result
     $proc = new XSLTProcessor;

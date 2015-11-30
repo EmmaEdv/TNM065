@@ -1,0 +1,74 @@
+#header {
+    background-color: #66ccff;
+    display: block;
+    height: 100px;
+    margin:0 auto;
+    width: 360px;
+}
+html {
+    background: #f2f3f2;
+    margin: 0px;
+}
+body {
+    margin:0px;
+    padding:0px;
+    width: 0px;
+}
+#contents {
+    background:white;
+    padding:20px 20px;
+    margin-bottom:60px;
+    width: 320px;
+}
+.item {
+    border: 2px solid;
+    padding: 5px; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: auto;
+    height: auto; 
+}
+h1 {
+    text-align: left;
+    float:left;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 50px;
+    font-size: 30px;
+    font-family: "Helvetica", sans-serif;
+}
+.toprow h3, h4 { 
+    display: inline;
+    margin-top: 2px;
+    margin-bottom: 2px
+}
+.toprow h3 {
+    text-align: left;
+}
+.toprow h4 {
+    text-align: right;
+    float: right;
+    font-weight: normal;
+}
+.toprow {
+    margin-bottom: 10px;
+}
+.item h5 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.item p,ul {
+    margin-top: 5px;
+}
+.item input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: right;
+}
+#header a {
+    float: right;
+}
+#header button {
+    margin-top: 80px;
+    float: right;
+}

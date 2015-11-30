@@ -1,15 +1,12 @@
-<!ELEMENT wlogpost (userId, date, text, place, activityType, activityId)>
+<!ELEMENT wlogpost (userId, activity_date, text, place, activityType, activityId)>
 
 <!ELEMENT userId (#PCDATA)>
 
-<!ENTITY % date "year, month, day, hour, minute, second">
-<!ELEMENT publish_date (%date;)>
+<!ENTITY % date "year, month, day">
+<!ELEMENT activity_date (%date;)>
 <!ELEMENT year (#PCDATA)>
 <!ELEMENT month (#PCDATA)>
 <!ELEMENT day (#PCDATA)>
-<!ELEMENT hour (#PCDATA)>
-<!ELEMENT minute (#PCDATA)>
-<!ELEMENT second (#PCDATA)>
 
 <!ELEMENT text (#PCDATA)>
 <!ELEMENT place (#PCDATA)>
@@ -21,19 +18,15 @@
 <!-- ACTIVITY TYPES -->
 <!-- RUNNING -->
 <!ELEMENT running (activityId, length, time)>
-<--! <!ELEMENT activityId (#PCDATA)> -->
 <!ELEMENT length (#PCDATA)>
 <!ELEMENT time (#PCDATA)>
 
 <!-- GYM -->
 <!ELEMENT gym (activityId, exercise, weight, reps)>
-<--! <!ELEMENT exercise (#PCDATA)> -->
-<--! <!ELEMENT weight (#PCDATA)> -->
-<--! <!ELEMENT reps (#PCDATA)> -->
+<!ELEMENT exercise (#PCDATA)>
+<!ELEMENT weight (#PCDATA)>
+<!ELEMENT reps (#PCDATA)>
 
 <!-- SWIMMING -->
 <!ELEMENT swimming (activityId, length, time, stroke)>
-<--! <!ELEMENT activityId (#PCDATA)> -->
-<--! <!ELEMENT length (#PCDATA)> -->
-<--! <!ELEMENT time (#PCDATA)> -->
 <!ELEMENT stroke (#PCDATA)>
