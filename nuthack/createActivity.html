@@ -7,12 +7,12 @@
             $(document).ready(function() {
                 $("#activityType").change(function() {
                     var val = $(this).val();
-                    if (val == "running") {
-                        $("#specificInput").html("Längd: <br/> <input type='text' name='length'/> km <br/> Tid: <br/> <input type='time' name='time' step='1'/> <br/>");
-                    } else if (val == "gym") {
-                        $("#specificInput").html("Övning: <br/> <input type='text' name='exercise'/> <br/> Vikt: <br/> <input type='text' name='weight'/> kg <br/> Reps: <br/> <input type='text' name='reps'/> <br/>");
-                    } else if (val == "swimming") {
-                        $("#specificInput").html("Simsätt: <br/> <input type='text' name='stroke'/> kg <br/> Längd: <br/> <input type='text' name='length'/> m <br/> Tid: <br/> <input type='time' name='time' step='1'/>  <br/>");
+                    if (val == "Running") {
+                        $("#specificInput").html("Length: <br/> <input type='text' name='length'/> km <br/> Time: <br/> <input type='time' name='time' step='1'/> <br/>");
+                    } else if (val == "Gym") {
+                        $("#specificInput").html("Exercise: <br/> <input type='text' name='exercise'/> <br/> Weight: <br/> <input type='text' name='weight'/> kg <br/> Repetitions: <br/> <input type='text' name='reps'/> <br/>");
+                    } else if (val == "Swimming") {
+                        $("#specificInput").html("Stroke: <br/> <input type='text' name='stroke'/> kg <br/> Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1'/>  <br/>");
                     }
                 });
             });
@@ -21,23 +21,23 @@
         
     <body>
         <div id="header">
-            <h1>Skapa aktivitet</h1>
+            <h1>Create Activity</h1>
         </div>
         <div id="contents">
             <form method="post" action="create.php">
-                Aktivitet:
+                Activity:
                 <br/>
                 <select id="activityType" name="activityType">
-                  <option value="running" selected="selected">Löpning</option>
-                  <option value="gym">Gym</option>
-                  <option value="swimming">Simning</option>-->
+                  <option value="Running" selected="selected">Running</option>
+                  <option value="Gym">Gym</option>
+                  <option value="Swimming">Swimming</option>-->
                 </select>
                 <br/>
-                Fritext:
+                Text:
                 <br/>
                 <input type="text" name="text"/>
                 <br/>
-                Plats:
+                Place:
                 <br/>
                 <input type="text" name="place"/>
                 <br/>
@@ -50,7 +50,7 @@
                 <br/>
                 <!--Löpning som default-->
                 <div id="specificInput">
-                    Längd: <br/> <input type='text' name='length'/> m <br/> Tid: <br/> <input type='time' name='time' step='1'/> <br/>
+                    Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1'/> <br/>
                 </div>
                 
                 <input type="submit" id="btn_sub" name="btn_sub" value="Submit" />

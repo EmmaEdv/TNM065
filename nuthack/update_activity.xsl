@@ -10,11 +10,11 @@
             
         <body>
             <div id="header">
-                <h1>Skapa aktivitet</h1>
+                <h1>Create activity</h1>
             </div>
             <div id="contents">
                 <form method="post" action="updateDb.php">
-                    Aktivitet:
+                    Activity:
                     <br></br>
                     <select disabled="true">
                         <option name="activityType">
@@ -22,7 +22,7 @@
                         </option>
                     </select>
                     <br></br>
-                    Fritext:
+                    Text:
                     <br></br>
                     <input type="text" name="text">
                         <xsl:attribute name="value">
@@ -30,7 +30,7 @@
                         </xsl:attribute>
                     </input>
                     <br></br>
-                    Plats:
+                    Place:
                     <br></br>
                     <input type="text" name="place">
                         <xsl:attribute name="value">
@@ -51,14 +51,14 @@
                     <xsl:choose>
                         <xsl:when test="activityType = 'Running'">
                             <div id="specificInput">
-                                Längd: <br></br> 
+                                Length: <br></br> 
                                 <input type='text' name='length'> 
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="length"/>
                                     </xsl:attribute>
                                 </input>
                                 m <br></br>
-                                Tid: <br></br>
+                                Time: <br></br>
                                 <input type='time' name='time' step='1'>
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="time"/>
@@ -68,13 +68,13 @@
                         </xsl:when>
 
                         <xsl:when test="activityType = 'Gym'">
-                            Övning: <br></br>
+                            Exercise: <br></br>
                             <input type='text' name='exercise'>
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="exercise"/>
                                 </xsl:attribute>
                             </input> <br></br> 
-                            Vikt: <br></br>
+                            Weight: <br></br>
                             <input type='text' name='weight'>
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="weight"/>
@@ -89,19 +89,19 @@
                         </xsl:when>
 
                         <xsl:when test="activityType = 'Swimming'">
-                            Simsätt: <br></br> 
+                            Stroke: <br></br> 
                             <input type='text' name='stroke'>
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="stroke"/>
                                 </xsl:attribute>
                             </input> kg <br></br>
-                            Längd: <br></br>
+                            Length: <br></br>
                             <input type='text' name='length'>
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="length"/>
                                 </xsl:attribute>
                             </input> m <br></br>
-                            Tid: <br></br>
+                            Time: <br></br>
                             <input type='time' name='time' step='1'>
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="time"/>
