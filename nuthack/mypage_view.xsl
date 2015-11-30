@@ -16,17 +16,21 @@
             <div id="contents">
                 <xsl:for-each select="wlogpost">
                     <div class="item">
-                        <input type="button" value="Delete">
-                                <xsl:attribute name="name">
+                        <form method="post" action="deleteActivity.php">
+                            <input type="submit" name="delete_btn" value="Delete"> </input>
+                            <input type="hidden" name="activityId">
+                                <xsl:attribute name="value">
                                     <xsl:value-of select="activityId"/>
                                 </xsl:attribute>
-                        </input>
-                        <form method="post" action="updateActivity.php">
-                            <input type="submit" name="edit_btn" value="Edit">
-                                    <xsl:attribute name="name">
-                                        <xsl:value-of select="activityId"/>
-                                    </xsl:attribute>
                             </input>
+                            <input type="hidden" name="activityType">
+                                <xsl:attribute name="value">
+                                    <xsl:value-of select="activityType"/>
+                                </xsl:attribute>
+                            </input>
+                        </form>
+                        <form method="post" action="updateActivity.php">
+                            <input type="submit" name="edit_btn" value="Edit"> </input>
                             <div class="toprow" >
                                 <xsl:choose>
                                     <xsl:when test="activityType = 'Gym'">
