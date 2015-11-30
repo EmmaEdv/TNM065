@@ -61,3 +61,12 @@ h1 {
     margin-top: 5px;
 }
 
+.item input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    float: right;
+}
+
+.item button {
+}
+
