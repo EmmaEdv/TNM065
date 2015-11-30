@@ -20,8 +20,8 @@
                                     <xsl:value-of select="activityId"/>
                                 </xsl:attribute>
                         </input>
-                        <form>
-                            <input type="button" value="Edit">
+                        <form method="post" action="updateActivity.php">
+                            <input type="submit" name="edit_btn" value="Edit">
                                     <xsl:attribute name="name">
                                         <xsl:value-of select="activityId"/>
                                     </xsl:attribute>
@@ -45,20 +45,31 @@
 
                                 <h4><xsl:value-of select="date"/></h4>
                                 <h5><xsl:value-of select="place"/></h5>
+                                
                                 <!-- HIDDEN FOR FORM-->
-                                <input type="hidden">
+                                <input type="hidden" name="activityId">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="activityId"/>
+                                    </xsl:attribute>
+                                </input>
+                                <input type="hidden" name="activityType">
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="activityType"/>
                                     </xsl:attribute>
                                 </input>
-                                <input type="hidden">
+                                <input type="hidden" name="date">
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="date"/>
                                     </xsl:attribute>
                                 </input>
-                                <input type="hidden">
+                                <input type="hidden" name="place">
                                     <xsl:attribute name="value">
                                         <xsl:value-of select="place"/>
+                                    </xsl:attribute>
+                                </input>
+                                <input type="hidden" name="text">
+                                    <xsl:attribute name="value">
+                                        <xsl:value-of select="text"/>
                                     </xsl:attribute>
                                 </input>
                             </div>
@@ -70,17 +81,17 @@
                                         <li><xsl:value-of select="stroke"/>.<xsl:value-of select="length"/> 
                                             in <xsl:value-of select="time"/></li>
                                     </ul>
-                                    <input type="hidden">
+                                    <input type="hidden" name="length">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="length"/>
                                         </xsl:attribute>
                                     </input>
-                                    <input type="hidden">
+                                    <input type="hidden" name="time">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="time"/>
                                         </xsl:attribute>
                                     </input>
-                                    <input type="hidden">
+                                    <input type="hidden" name="stroke">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="stroke"/>
                                         </xsl:attribute>
@@ -91,12 +102,12 @@
                                     <ul>
                                         <li><xsl:value-of select="length"/>m in <xsl:value-of select="time"/></li>
                                     </ul>
-                                    <input type="hidden">
+                                    <input type="hidden" name="length">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="length"/>
                                         </xsl:attribute>
                                     </input>
-                                    <input type="hidden">
+                                    <input type="hidden" name="time">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="time"/>
                                         </xsl:attribute>
@@ -109,17 +120,17 @@
                                         <li><xsl:value-of select="repetitions"/> reps <xsl:value-of select="exercise"/> 
                                             at <xsl:value-of select="weight"/>kg</li>
                                     </ul>
-                                    <input type="hidden">
+                                    <input type="hidden" name="repetitions">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="repetitions"/>
                                         </xsl:attribute>
                                     </input>
-                                    <input type="hidden">
+                                    <input type="hidden" name="exercise">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="exercise"/>
                                         </xsl:attribute>
                                     </input>
-                                    <input type="hidden">
+                                    <input type="hidden" name="weight">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="weight"/>
                                         </xsl:attribute>
@@ -132,11 +143,6 @@
                             <p>
                                 <xsl:value-of select="text"/>
                             </p>
-                            <input type="hidden">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="text"/>
-                                </xsl:attribute>
-                            </input>
                         </form>
                     </div>
                 </xsl:for-each>
