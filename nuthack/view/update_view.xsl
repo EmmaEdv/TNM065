@@ -94,7 +94,7 @@
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="stroke"/>
                                 </xsl:attribute>
-                            </input> kg <br></br>
+                            </input> <br></br>
                             Length: <br></br>
                             <input type='text' name='length'>
                                 <xsl:attribute name="value">
