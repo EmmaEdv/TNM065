@@ -40,6 +40,7 @@
                     }
                 });
             });
+            
         </script>
     </head>
         
@@ -68,13 +69,12 @@
                 Date:
                 <br/>
                 
-                <!--TODO: HÄMTA DAGENS DATUM AUTOMAGISKT PLEASE-->
+                <input type="date" id="date" name="date"/>
 
-                <input type="date" name="date" value="2015-11-26"/>
                 <br/>
                 <!--Löpning som default-->
                 <div id="specificInput">
-                    Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1'/> <br/>
+                    Length: <br/> <input type='text' name='length'/> m <br/> Time: <br/> <input type='time' name='time' step='1' value="00:00:00"/> <br/>
                 </div>
                 
                 <input type="submit" id="btn_sub" name="btn_sub" value="Submit" />
@@ -82,3 +82,20 @@
         </div>
     </body>
 </html>
+
+<script> 
+    //Get today's date
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var ymd = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("date").value = ymd;
+    </script>
