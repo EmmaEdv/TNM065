@@ -5,14 +5,14 @@
 <xsl:template match="apa/wlog">
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="style_main.css" />
+            <link rel="stylesheet" type="text/css" href="css/style_main.css" />
         </head>
             
         <body>
             <div id="header">
                 <h1><xsl:value-of select="name"/> - my page</h1>
                 <button type="button"><a href="index_foo.php">log out</a></button>
-                <button type="button"><a href="createActivity.html">Create activity</a></button>
+                <button type="button"><a href="view/create_view.html">Create activity</a></button>
             </div>
             <div id="contents">
                 <xsl:for-each select="wlogpost">

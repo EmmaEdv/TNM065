@@ -5,12 +5,13 @@
 <xsl:template match="apa/activity">
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="style_main.css"> </link>
+            <link rel="stylesheet" type="text/css" href="css/style_mobile.css"> </link>
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </head>
             
         <body>
             <div id="header">
-                <h1>Create activity</h1>
+                <h1>Create activityM</h1>
             </div>
             <div id="contents">
                 <form method="post" action="updateDb.php">

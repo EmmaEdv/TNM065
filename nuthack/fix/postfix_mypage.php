@@ -16,10 +16,10 @@
     if (preg_match("/iPhone/i", $UA)) 
     {
         header("Content-type:text/html;charset=utf-8");
-        $xsl->load('mypage_view_mobile.xsl');
+        $xsl->load('view/mypage_view_mobile.xsl');
     }  else {
         header("Content-type:text/html;charset=utf-8");
-        $xsl->load('mypage_view.xsl');
+        $xsl->load('view/mypage_view.xsl');
     }
 
     // Make the transformation and print the result

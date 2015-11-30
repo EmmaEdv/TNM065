@@ -16,10 +16,10 @@
     if (preg_match("/iPhone/i", $UA)) 
     {
         header("Content-type:text/html;charset=utf-8");
-        $xsl->load('main_view_mobile.xsl');
+        $xsl->load('view/main_view_mobile.xsl');
     } else {
         header("Content-type:text/html;charset=utf-8");
-        $xsl->load('main_view.xsl');
+        $xsl->load('view/main_view.xsl');
     }
 
     // skall bytas ut när ovan är löst

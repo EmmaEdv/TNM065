@@ -5,7 +5,7 @@
 <xsl:template match="apa/activity">
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="style_main.css"> </link>
+            <link rel="stylesheet" type="text/css" href="css/style_main.css"> </link>
         </head>
             
         <body>

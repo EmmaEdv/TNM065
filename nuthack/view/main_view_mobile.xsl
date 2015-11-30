@@ -5,12 +5,13 @@
 <xsl:template match="apa/wlog">
     <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="style_main.css" />
+            <link rel="stylesheet" type="text/css" href="css/style_mobile.css" />
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </head>
             
         <body>
             <div id="header">
-                <h1><xsl:value-of select="name"/></h1>
+                <h1><xsl:value-of select="name"/> - mobile</h1>
                 <button type="button"><a href="mypage.php">log in</a></button>
                 <button type="button"><a href="download_xml.php">XML</a></button>
             </div>
