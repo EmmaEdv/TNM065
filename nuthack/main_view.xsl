@@ -11,6 +11,7 @@
         <body>
             <div id="header">
                 <h1><xsl:value-of select="name"/></h1>
+                <button type="button"><a href="mypage.php">log in</a></button>
             </div>
             <div id="contents">
                 <xsl:for-each select="wlogpost">
