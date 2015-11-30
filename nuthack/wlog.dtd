@@ -4,11 +4,7 @@
 
 <!ELEMENT userId (#PCDATA)>
 
-<!ENTITY % dateformat "year, month, day">
-<!ELEMENT date (%dateformat;)>
-<!ELEMENT year (#PCDATA)>
-<!ELEMENT month (#PCDATA)>
-<!ELEMENT day (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
 
 <!ELEMENT text (#PCDATA)>
 <!ELEMENT place (#PCDATA)>
