@@ -1,4 +1,4 @@
- <?php  
+<?php  
     $servername = "188.226.180.103";
     $port = "3306";
     $username = "nuthack";
@@ -39,8 +39,8 @@
     
     $result = mysqli_query($conn, $query2)
         or die("First query failed");
-    echo $activityType;
-    echo $activityId;
+    
+    header("Location: mypage.php");
 
     $conn->close();
 ?>

@@ -1,4 +1,4 @@
- <?php  
+<?php  
     $servername = "188.226.180.103";
     $port = "3306";
     $username = "nuthack";
@@ -18,9 +18,9 @@
     
     $result = mysqli_query($conn, $query)
         or die("First query failed");
-    echo $activityType;
+    
     if($activityType == "Running") {
-        //$runningId = $_POST["runningId"];
+        //$runningId = $_POST["runningId"]; 
         $length = $_POST["length"];
         $time = $_POST["time"];
 
@@ -51,6 +51,8 @@
         $result = mysqli_query($conn, $query2)
             or die("Swimming query failed");
     } 
-
+    
+    header("Location: mypage.php");
+    
     $conn->close();
 ?>

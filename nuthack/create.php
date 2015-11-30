@@ -1,4 +1,4 @@
- <?php  
+<?php  
     $servername = "188.226.180.103";
     $port = "3306";
     $username = "nuthack";
@@ -22,16 +22,16 @@
     
     $activityId = mysqli_insert_id($conn);
     
-    if($activityType == "running") {
+    if($activityType == "Running") {
         $length = $_POST["length"];
         $time = $_POST["time"];
 
         $query2 = "INSERT INTO Running (activityId, length, time) VALUES ($activityId, $length, '$time')";
 
         $result = mysqli_query($conn, $query2)
-            or die("Query failed");
+            or die("Running query failed");
     } 
-    else if($activityType == "gym") {
+    else if($activityType == "Gym") {
         $exercise = $_POST["exercise"];
         $weight = $_POST["weight"];
         $reps = $_POST["reps"];
@@ -39,9 +39,9 @@
         $query2 = "INSERT INTO Gym (activityId, exercise, weight, repetitions) VALUES ($activityId, '$exercise', $weight, $reps)";
 
         $result = mysqli_query($conn, $query2)
-            or die("Query failed");
+            or die("Gym query failed");
     } 
-    else if($activityType == "swimming") {
+    else if($activityType == "Swimming") {
         $stroke = $_POST["stroke"];
         $length = $_POST["length"];
         $time = $_POST["time"];
@@ -49,8 +49,8 @@
         $query2 = "INSERT INTO Swimming (activityId, stroke, length, time) VALUES ($activityId, '$stroke', $length, '$time')";
 
         $result = mysqli_query($conn, $query2)
-            or die("Query failed");
+            or die("Swimming query failed");
     } 
-
+    header("Location: mypage.php");
     $conn->close();
 ?>
