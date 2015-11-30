@@ -18,7 +18,7 @@
     
     $result = mysqli_query($conn, $query)
         or die("First query failed");
-    
+    echo $activityType;
     if($activityType == "Running") {
         //$runningId = $_POST["runningId"];
         $length = $_POST["length"];

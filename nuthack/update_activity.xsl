@@ -16,8 +16,11 @@
                 <form method="post" action="updateDb.php">
                     Aktivitet:
                     <br></br>
-                     <xsl:value-of select="activityType"/>
-
+                    <select disabled="true">
+                        <option name="activityType">
+                            <xsl:value-of select="activityType"/>    
+                        </option>
+                    </select>
                     <br></br>
                     Fritext:
                     <br></br>
@@ -113,6 +116,11 @@
                     <input type="hidden" name="activityId">
                         <xsl:attribute name="value">
                             <xsl:value-of select="activityId"/>
+                        </xsl:attribute>
+                    </input>
+                    <input type="hidden" name="activityType">
+                        <xsl:attribute name="value">
+                            <xsl:value-of select="activityType"/>
                         </xsl:attribute>
                     </input>
                     <input type="submit" name="btn_sub" value="Submit"></input>
