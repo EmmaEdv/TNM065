@@ -1,20 +1,14 @@
 <?php  
-    // koppla upp mot databasen med med användarnamn "rsslab", utan lösenord
+    // koppla upp mot databasen
     $servername = "188.226.180.103";
     $port = "3306";
     $username = "nuthack";
     $password = "hejsanphylyp";
     $mydb = "nuthack";
 
-    //$link = mysql_connect($servername, $username, $password)
-      //  or die("Could not connect");
-
     $link = mysqli_connect($servername, $username, $password, $mydb, $port)
        or die("Could not connect");
-    // välj databasen rsslab
-    /*mysql_select_db("nuthack")
-        or die("Could not select database");
-        <!DOCTYPE person SYSTEM "http://emmaedv.github.io/TNM065/lab-dtd/start.dtd">*/
+    // skapa xml sträng
     $returnstring_about = '<?xml version="1.0"?>';
     $returnstring_about = $returnstring_about . '<!DOCTYPE wlog SYSTEM "http://emmaedv.github.io/TNM065/nuthack/wlog.dtd">';
     $returnstring_about = $returnstring_about . "<wlog><name>WLOG</name>";
@@ -37,18 +31,8 @@
         $place = $line->place;
         $activityId = $line->activityId;
         $activityType = $line->activityType;
-        $text = preg_replace("/&/","&amp;", $text);
-        $place = preg_replace("/&/","&amp;", $place);
-        //$place = preg_replace("/ö/","&ouml;", $place);
-        $place = preg_replace("/[å]/", "a", $place);  
-        $place = preg_replace("/[Å]/", "A", $place);  
-        $place = preg_replace("/[ä]/", "a", $place);  
-        $place = preg_replace("/[Ä]/", "A", $place);  
-        $place = preg_replace("/[ö]/", "o", $place);  
-        $place = preg_replace("/[Ö]/", "O", $place); 
 
         // bygg upp en sträng innehållande det resultat vi vill ha
-        // slå ihop två strängar med ".".   
         $returnstring_about = $returnstring_about . "<wlogpost><userId>$userId</userId><date>$date</date>
             <text>$text</text><place>$place</place><activityId>$activityId</activityId>
             <activityType>$activityType</activityType>"; 
@@ -73,9 +57,8 @@
         $returnstring_about = $returnstring_about . "</wlogpost>";
     }
 
-    // koda för säkerhets skull om till utf-8 innan resultatet
     // skrivs ut.
     $returnstring_about = $returnstring_about . "</wlog>";
-    header('Content-Disposition: attachment; filename="text1.xml"');
+    header('Content-Disposition: attachment; filename="nuthack.xml"');
     echo $returnstring_about; 
 ?>

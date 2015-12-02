@@ -2,7 +2,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns="http://www.w3.org/1999/xhtml">
 <xsl:output indent="yes"/>
-<xsl:template match="apa/activity">
+<xsl:template match="data/activity">
     <html>
         <head>
             <link rel="stylesheet" type="text/css" href="css/style_main.css"> </link>
@@ -13,7 +13,7 @@
                 <h1>Create activity</h1>
             </div>
             <div id="contents">
-                <form method="post" action="updateDb.php">
+                <form method="post" action="dbquery/updateDb.php">
                     Activity:
                     <br></br>
                     <select disabled="true">

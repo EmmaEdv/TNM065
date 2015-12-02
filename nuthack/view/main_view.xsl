@@ -2,7 +2,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns="http://www.w3.org/1999/xhtml">
 <xsl:output indent="yes"/>
-<xsl:template match="apa/wlog">
+<xsl:template match="data/wlog">
     <html>
         <head>
             <link rel="stylesheet" type="text/css" href="css/style_main.css" />
@@ -12,7 +12,7 @@
             <div id="header">
                 <h1><xsl:value-of select="name"/></h1>
                 <button type="button"><a href="mypage.php">log in</a></button>
-                <button type="button"><a href="download_xml.php">XML</a></button>
+                <button type="button"><a href="dbquery/download_xml.php">XML</a></button>
             </div>
             <div id="contents">
                 <xsl:for-each select="wlogpost">

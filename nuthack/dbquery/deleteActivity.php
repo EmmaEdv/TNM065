@@ -40,7 +40,7 @@
     $result = mysqli_query($conn, $query2)
         or die("First query failed");
     
-    header("Location: mypage.php");
+    header("Location: ../mypage.php");
 
     $conn->close();
 ?>

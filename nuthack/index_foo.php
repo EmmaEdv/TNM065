@@ -1,5 +1,5 @@
 <?php include 'fix/prefix.php';?>
-<apa>
+<data>
     <?php
         $servername = "188.226.180.103";
         $port = "3306";
@@ -57,12 +57,9 @@
             }
             $returnstring_about = $returnstring_about . "</wlogpost>";
         }
-        
-
-        // koda för säkerhets skull om till utf-8 innan resultatet
-        // skrivs ut.
+        // skrivs ut till buffern.
         $returnstring_about = $returnstring_about . "</wlog>";
         print utf8_encode($returnstring_about); 
     ?>
-</apa>
+</data>
 <?php include 'fix/postfix.php';?>

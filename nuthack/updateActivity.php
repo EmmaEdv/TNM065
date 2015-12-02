@@ -1,5 +1,5 @@
 <?php include 'fix/prefix_update.php';?>
-<apa>
+<data>
     <?php  
         $activityId = $_POST['activityId'];
         $activityType = $_POST['activityType'];
@@ -30,5 +30,5 @@
 
         print utf8_encode($returnstring); 
     ?>
-</apa>
+</data>
 <?php include 'fix/postfix_update.php';?>

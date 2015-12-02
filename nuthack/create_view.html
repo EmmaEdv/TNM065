@@ -1,8 +1,6 @@
 <html>
     <head>
         <meta content="text/html" charset="UTF-8"/>
-        <!--<link rel="stylesheet" type="text/css" href="style_main.css" />-->
-    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>
             // set style depending on UA
@@ -10,7 +8,7 @@
                 var css = document.createElement('link');
                 css.type = "text/css";
                 css.rel = "stylesheet";
-                css.href = "../css/style_mobile.css";
+                css.href = "css/style_mobile.css";
 
                 var metatag = document.createElement('meta');
                 metatag.name = "viewport";
@@ -23,7 +21,7 @@
                 var css = document.createElement('link');
                 css.type = "text/css";
                 css.rel = "stylesheet";
-                css.href = "../css/style_main.css";
+                css.href = "css/style_main.css";
 
                 var h = document.getElementsByTagName('head')[0];
                 h.appendChild(css);
@@ -50,7 +48,7 @@
             <h1>Create Activity</h1>
         </div>
         <div id="contents">
-            <form method="post" action="../create.php">
+            <form method="post" action="dbquery/create.php">
                 Activity:
                 <br/>
                 <select id="activityType" name="activityType">
@@ -99,4 +97,4 @@
     } 
     var ymd = yyyy+'-'+mm+'-'+dd;
     document.getElementById("date").value = ymd;
-    </script>
+</script>

@@ -1,5 +1,5 @@
 <?php include 'fix/prefix_mypage.php';?>
-<apa>
+<data>
     <?php  
         $servername = "188.226.180.103";
         $port = "3306";
@@ -9,7 +9,6 @@
 
         $link = mysqli_connect($servername, $username, $password, $mydb, $port)
            or die("Could not connect");
-
 
         $returnstring_about ="<wlog><name>WLOG</name>";
         $currentDate=date("c");
@@ -57,12 +56,10 @@
             }
             $returnstring_about = $returnstring_about . "</wlogpost>";
         }
-        
 
-        // koda för säkerhets skull om till utf-8 innan resultatet
         // skrivs ut.
         $returnstring_about = $returnstring_about . "</wlog>";
         print utf8_encode($returnstring_about); 
     ?>
-</apa>
+</data>
 <?php include 'fix/postfix_mypage.php';?>
