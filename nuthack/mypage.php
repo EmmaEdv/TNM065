@@ -16,7 +16,7 @@
 
         $query = "SELECT  *
                 FROM Activity
-                ORDER BY userId DESC";
+                ORDER BY date DESC";
 
         // utför själva frågan. Om du har fel syntax får du felmeddelandet query failed
         $result = mysqli_query($link, $query)
