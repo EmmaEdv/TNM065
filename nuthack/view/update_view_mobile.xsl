@@ -1,8 +1,8 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns="http://www.w3.org/1999/xhtml">
-<xsl:output indent="yes"/>
-<xsl:template match="apa/activity">
+<xsl:output indent="yes" encoding="UTF-8"/>
+<xsl:template match="data/activity">
     <html>
         <head>
             <link rel="stylesheet" type="text/css" href="css/style_mobile.css"> </link>
@@ -14,7 +14,7 @@
                 <h1>Create activityM</h1>
             </div>
             <div id="contents">
-                <form method="post" action="updateDb.php">
+                <form method="post" action="dbquery/updateDb.php">
                     Activity:
                     <br></br>
                     <select disabled="true">

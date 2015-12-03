@@ -1,8 +1,8 @@
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
     xmlns="http://www.w3.org/1999/xhtml">
-<xsl:output indent="yes"/>
-<xsl:template match="apa/wlog">
+<xsl:output indent="yes" encoding="UTF-8"/>
+<xsl:template match="data/wlog">
     <html>
         <head>
             <link rel="stylesheet" type="text/css" href="css/style_main.css" />
@@ -12,12 +12,12 @@
             <div id="header">
                 <h1><xsl:value-of select="name"/> - my page</h1>
                 <button type="button"><a href="index_foo.php">log out</a></button>
-                <button type="button"><a href="view/create_view.html">Create activity</a></button>
+                <button type="button"><a href="create_view.html">Create activity</a></button>
             </div>
             <div id="contents">
                 <xsl:for-each select="wlogpost">
                     <div class="item">
-                        <form method="post" action="deleteActivity.php">
+                        <form method="post" action="dbquery/deleteActivity.php">
                             <input type="submit" name="delete_btn" value="Delete"> </input>
                             <input type="hidden" name="activityId">
                                 <xsl:attribute name="value">

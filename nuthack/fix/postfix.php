@@ -10,8 +10,7 @@
     // Skapa ett dom element för stylesheet
     $xsl = new DOMDocument;
 
-    // TODO: kolla vilken user agent och sätt rätt styletsheet
-    // See which user agent is connecting
+    // kolla vilken user agent och sätt rätt styletsheet
     $UA = getenv('HTTP_USER_AGENT');
     if (preg_match("/iPhone/i", $UA)) 
     {
@@ -22,13 +21,8 @@
         $xsl->load('view/main_view.xsl');
     }
 
-    // skall bytas ut när ovan är löst
-    //header("Content-type:text/html;charset=utf-8");
-    //$xsl->load('main_view.xsl');
-
     // Make the transformation and print the result
     $proc = new XSLTProcessor;
     $proc->importStyleSheet($xsl); // attach the xsl rules
     echo utf8_decode($proc->transformToXML($xml));
-    
 ?>

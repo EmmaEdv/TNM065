@@ -52,7 +52,7 @@
             or die("Swimming query failed");
     } 
     
-    header("Location: mypage.php");
+    header("Location: ../mypage.php");
     
     $conn->close();
 ?>
