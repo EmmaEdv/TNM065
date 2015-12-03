@@ -10,12 +10,12 @@
         $link = mysqli_connect($servername, $username, $password, $mydb, $port)
            or die("Could not connect");
 
-
+        $userId = 1;
         $returnstring_about ="<wlog><name>WLOG</name>";
         $currentDate=date("c");
 
         $query = "SELECT  *
-                FROM Activity
+                FROM Activity WHERE userId = $userId
                 ORDER BY date DESC";
 
         // utför själva frågan. Om du har fel syntax får du felmeddelandet query failed
