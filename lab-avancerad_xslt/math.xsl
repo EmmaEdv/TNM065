@@ -18,6 +18,7 @@
     <xsl:apply-templates select="fact"/>
     <xsl:apply-templates select="fib"/>
     <xsl:apply-templates select="reverse"/>
+    <xsl:apply-templates select="euclides"/>
   </xsl:template>
 
   <!--2: Variabler och multiplikation-->
@@ -107,6 +108,44 @@
         <xsl:call-template name="reverseRec">
           <xsl:with-param name="text" select="substring($text, 1, (-1+$length) )" />
         </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <!--6: Euclides algorithm-->
+  <xsl:template match="euclides">
+    <xsl:variable name="termHigh" select="child::term[position()=1]"/>
+    <xsl:variable name="termLow" select="child::term[position()=last()]"/>
+
+    <xsl:if test="$termLow &gt; $termHigh">
+      <xsl:variable name="temp" select="$termLow"/>
+      <xsl:variable name="tempLow" select="$termHigh"/>
+      <xsl:variable name="tempHigh" select="$temp"/>
+    </xsl:if>
+
+
+    <xsl:call-template name="euclildesAlg">
+      <xsl:with-param name="termHigh" select="$termHigh" />
+      <xsl:with-param name="termLow" select="$termLow" />
+    </xsl:call-template>
+
+  </xsl:template>
+
+  <xsl:template name="euclildesAlg">
+    <xsl:param name="termHigh"/>
+    <xsl:param name="termLow"/>
+
+    <xsl:variable name="rest" select="$termHigh mod $termLow"/>
+    <xsl:choose>
+      <xsl:when test="$rest &gt; 0">
+        <xsl:call-template name="euclildesAlg">
+          <xsl:with-param name="termHigh" select="$termLow" />
+          <xsl:with-param name="termLow" select="$rest" />
+        </xsl:call-template>
+      </xsl:when>
+
+      <xsl:otherwise>
+        <xsl:value-of select="$termLow"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
